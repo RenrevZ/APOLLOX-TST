@@ -12,10 +12,25 @@
         <v-btn
           :color="isFavorite ? 'red' : 'grey'"
           @click="toggleFavorite"
+          v-if="!isFavorite"
         >
-          <v-icon>{{ isFavorite ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
-          <span>{{ isFavorite ? 'Remove from Favorites' : 'Add to Favorites' }}</span>
+          <v-icon>mdi-heart-outline</v-icon>
+          <span>Add to Favorites</span>
         </v-btn>
+
+        <Dialog v-if="isFavorite">
+          <template v-slot:actions>
+               <v-btn
+               text="Yes I'm sure"
+               color="primary"
+               variant="flat"
+               @click="toggleFavorite"
+             >
+             <v-icon class="mr-2">{{ isFavorite ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
+             Yes I'm sure
+            </v-btn>
+           </template>
+        </Dialog>
 
       </v-card-actions>
     </v-card>

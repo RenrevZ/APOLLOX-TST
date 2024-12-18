@@ -11,7 +11,7 @@
 			<slot />
 		</v-main>
 		
-		<v-bottom-navigation >
+		<v-bottom-navigation app>
 			<v-btn value="recent" :to="{ name: 'index' }">
 				<v-icon>mdi-rocket-launch-outline</v-icon>
 				<span>Lauches</span>

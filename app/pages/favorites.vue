@@ -25,13 +25,19 @@
               sm="6"
               md="4"
             >
-              <v-card>
+              <v-card class="pa-3">
                 <v-card-title>{{ rocket.name }}</v-card-title>
-                <v-card-actions>
-                  <v-btn color="red" @click="removeFavorite(rocket.id)">
-                    Remove
-                  </v-btn>
-                </v-card-actions>
+                
+                 <Dialog>
+                   <template v-slot:actions>
+                        <v-btn
+                        text="Yes I'm sure"
+                        color="primary"
+                        variant="flat"
+                        @click="removeFavorite(rocket.id)"
+                      ></v-btn>
+                    </template>
+                 </Dialog>
               </v-card>
             </v-col>
           </v-row>
