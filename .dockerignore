@@ -1,5 +1,0 @@
-node_modules
-.pnpm
-dist
-.env
-.DS_Store
