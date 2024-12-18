@@ -5,7 +5,7 @@
       <v-card-text>
         <p><strong>Rocket:</strong> {{ launch.rocket?.rocket_name }}</p>
         <p><strong>Launch Site:</strong> {{ launch.launch_site?.site_name_long }}</p>
-        <p v-show="launch.details"><strong>Details:</strong><br> {{ launch.details.length > 50 ? launch.details.slice(0, 50) + '...' : launch.details }}</p>
+        <p v-show="launch.details"><strong>Details:</strong><br> {{ launch.details?.length > 50 ? launch.details.slice(0, 50) + '...' : launch.details }}</p>
       </v-card-text>
 
       <v-card-actions>

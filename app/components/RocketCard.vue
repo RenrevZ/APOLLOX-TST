@@ -5,7 +5,7 @@
       <v-card-text>
         <p>
             <strong>Description:</strong> 
-            {{ rocket.description.length > 50 ? rocket.description.slice(0, 50) + '...' : rocket.description }}
+            {{ rocket.description?.length > 50 ? rocket.description.slice(0, 50) + '...' : rocket.description }}
         </p>
       </v-card-text>
 

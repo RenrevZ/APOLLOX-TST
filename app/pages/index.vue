@@ -13,20 +13,21 @@
 				<v-select
 				v-model="filterYear"
 				:items="availableYears"
-				item-text="year"
 				label="Filter by Year"
 				outlined
 				></v-select>
 			</v-col>
-			
 			<v-col cols="10">
-				<v-row v-if="filteredAndSortedLaunches">
+				<v-row>
 					<v-col v-for="launch in filteredAndSortedLaunches" :key="launch.mission_name">
 						<LaunchCard v-if="launch" :launch="launch" />
 					</v-col>
-					<!-- Skeleton Loader -->
-					<v-col v-if="!filteredAndSortedLaunches" v-for="n in 3" :key="'loading-' + n" cols="12" md="4">
-						<v-skeleton-loader class="mx-auto" max-width="300" type="card"></v-skeleton-loader>
+					<v-col v-if="filteredAndSortedLaunches" v-for="n in 10" :key="n" cols="12" md="4">
+							<v-skeleton-loader
+							class="mx-auto"
+							max-width="300"
+							type="card"
+							></v-skeleton-loader>
 					</v-col>
 				</v-row>
 			</v-col>
@@ -78,8 +79,9 @@ const filteredAndSortedLaunches = computed(() => {
 
 // Dynamically create year options for the filter dropdown
 const availableYears = computed(() => {
-  const years = launches?.map((l) => l.launch_date_utc.substring(0, 4));
-  const uniqueYears = Array.from(new Set(years)).sort((a, b) => Number(b) - Number(a));
-  return ['All', ...uniqueYears]; // Include "All" at the beginning
+  const years = launches?.map((l) =>
+    l.launch_date_utc.substring(0, 4)
+  );
+  return Array.from(new Set(years)).sort((a, b) => Number(b) - Number(a));
 });
 </script>
