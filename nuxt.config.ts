@@ -13,7 +13,6 @@ export default defineNuxtConfig({
 			default: { httpEndpoint: 'https://spacex-production.up.railway.app/' },
 		},
 	},
-
 	vite: {
 		optimizeDeps: {
 			include: ['graphql-tag'],
